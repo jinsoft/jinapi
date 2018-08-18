@@ -29,13 +29,13 @@ class AuthenticationController extends Controller
         $user = User::where('github_id', '=', $socialUser->id)->first();
         if ($user == null) {
             $newUser = new User();
-            $newUser->name        = $socialUser->getNickname();
-            $newUser->email       = $socialUser->getEmail() == '' ? '' : $socialUser->getEmail();
-            $newUser->avatar      = $socialUser->getAvatar();
-            $newUser->password    = '';
+            $newUser->name = $socialUser->getNickname();
+            $newUser->email = $socialUser->getEmail() == '' ? '' : $socialUser->getEmail();
+            $newUser->avatar = $socialUser->getAvatar();
+            $newUser->password = '';
             $newUser->github_name = $socialUser->getNickname();
-            $newUser->github_id   = $socialUser->getId();
-            $newUser->github_url  = $socialUser->user['url'];
+            $newUser->github_id = $socialUser->getId();
+            $newUser->github_url = $socialUser->user['url'];
 
             $newUser->save();
             $user = $newUser;
@@ -44,6 +44,6 @@ class AuthenticationController extends Controller
         Auth::login($user);
 
         // 登录成功后将用户重定向到首页
-        return redirect('/');
+        return redirect('/#/Home');
     }
 }

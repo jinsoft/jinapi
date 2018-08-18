@@ -2,7 +2,8 @@ window._ = require('lodash');
 try {
     window.$ = window.jQuery = require('jquery');
     require('foundation-sites');
-} catch (e) {}
+} catch (e) {
+}
 
 window.axios = require('axios');
 
@@ -28,8 +29,6 @@ if (token) {
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-// require('./bootstrap');
-
 // window.Vue = require('vue');
 //
 // /**
@@ -40,6 +39,11 @@ if (token) {
 //
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-const app = new Vue({
-    el: '#app'
-});
+import Vue from 'vue';
+import router from './routes';
+import store from './store';
+
+new Vue({
+    router,
+    store
+}).$mount('#app');
