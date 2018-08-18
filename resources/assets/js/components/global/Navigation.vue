@@ -12,9 +12,9 @@
             </li>
         </ul>
 
-        <div class="right">
-            <img class="avatar" :src="user.avatar" v-show="userLoadStatus == 2"/>
-        </div>
+        <!--<div class="right">-->
+            <!--<img class="avatar" :src="user.avatar" v-show="userLoadStatus == 2"/>-->
+        <!--</div>-->
     </nav>
 </template>
 
@@ -28,14 +28,14 @@
             },
 
             // 从 Vuex 中获取用户信息
-            user(){
-                return this.$store.getters.getUser;
-            }
+            // user(){
+            //     return this.$store.getters.getUser;
+            // }
         }
     }
 </script>
 
-<style lang="sass">
+<style lang="scss">
     @import '~@/abstracts/_variables.scss';
 
     nav.top-navigation{
